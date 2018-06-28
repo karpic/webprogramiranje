@@ -1,0 +1,72 @@
+<div class="container">
+    <div class="row" ng-controller="topTenItemsController">
+        <div class="col-lg-3">
+            <h3>Top ten items</h3>
+            <div>
+                <a class="list-group-item clearfix" ng-repeat="item in topTenItems">
+                    <div class="pull-left">
+                        <h4 class="list-group-item-heading">[{{$index + 1}}] Item name:
+                            <b>{{item.name}}</b>
+                        </h4>
+                        <p class="list-group-item-text">Description:
+                            <b>{{item.description}}</b>
+                        </p>
+                        <p class="list-group-item-text">Type:
+                            <b>{{item.type}}</b>
+                        </p>
+                        <p class="list-group-item-text">Quantity:
+                            <b>{{item.quantity}}</b>
+                        </p>
+                    </div>
+                    <div class="pull-right">
+
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <div class="col-lg-9">
+            <h3>Browse restaurants by category</h3>
+            <select name="category" id="category" class="form-control">
+              <option value="chineese" ng-click="getRestaurantsForCategory('chineese')">Chineese</option>
+              <option value="indian" ng-click="getRestaurantsForCategory('indian')">Indian</option>
+              <option value="pizza" ng-click="getRestaurantsForCategory('pizza')">Pizza</option>
+            </select>
+        
+            <hr>
+            <br>  
+
+            <div ng-repeat="restaurant in restaurants">
+           
+                    <a class="list-group-item clearfix">
+                      <div class="pull-left">
+                        <h4 class="list-group-item-heading">Restaurant name:
+                          <b>{{restaurant.name}}</b>
+                          <span ng-if="retaurant.deleted" style="color: red">DELETED</span>
+                        </h4>
+                        <p class="list-group-item-text">Address:
+                          <b>{{restaurant.address}}</b>
+                        </p>
+                        <p class="list-group-item-text">Category:
+                          <b>{{restaurant.category}}</b>
+                        </p>
+                      </div>
+                  
+                      <div class="pull-right">
+                        <button class="btn btn-default">View items
+                          <i class="glyphicon glyphicon-chevron-down"></i>
+                        </button>
+                        <button class="btn btn-default" ng-click="goOrder(restaurant.id)">Order
+                          <i class="glyphicon glyphicon-plus"></i>
+                        </button>
+                        <button class="btn btn-default" ng-click="save(restaurant.id)">Save
+                          <i class="glyphicon glyphicon-heart"></i>
+                        </button>
+                      </div>
+                    </a>
+                  
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div ng-controller="restaurantUpdateController">
+    <form novalidate>
+        <div class="form-group">
+            <label for="name">Restaurant name:</label>
+            <input type="text" id="name" name="name" ng-model="restaurant.name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="address">Restaurant address:</label>
+            <input type="text" id="address" name="address" ng-model="restaurant.address" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="category">Restaurant category:</label>
+            <select name="category" id="category" ng-model="restaurant.category" class="form-control">
+                <option value="INDIAN">Indian restaurant</option>
+                <option value="PIZZA">Pizza restaurant</option>
+                <option value="CHINEESE">Chineese restaurant</option>
+            </select>
+        </div>
+
+
+        <input type="submit" ng-click="updateRestaurant()" value="Update restaurant" class="form-control" />
+    </form>
+</div>

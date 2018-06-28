@@ -1,0 +1,15 @@
+<div ng-controller="allItemsController">
+    <a class="list-group-item clearfix" ng-repeat="item in allItems">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">Item name: <b>{{item.name}}</b> <span ng-if="item.deleted" style="color: red">DELETED</span></h4>
+          <p class="list-group-item-text">Description: <b>{{item.description}}</b></p>
+          <p class="list-group-item-text">Type: <b>{{item.type}}</b></p>
+          <p class="list-group-item-text">Quantity: <b>{{item.quantity}}</b></p>
+          <p class="list-group-item-text">Price: <b>{{item.price}}</b></p>
+        </div>
+        <div class="pull-right">
+          <button class="btn btn-primary" ng-click="go(item.id)">Update</button>
+          <button class="btn btn-danger" ng-if="!item.deleted" ng-click="delete(item.id)">Delete</button>
+        </div>
+      </a>
+</div>

@@ -1,0 +1,70 @@
+<div ng-controller="itemSearchController">
+    <div class="row">
+        <br>
+        <h3>Search items</h3>
+        <hr>
+        <div class="col-lg-3">
+            <div class="input-group">
+                <label for="name">Item name</label>
+                <input type="text" name="name" id="name" class="form-control" ng-model="searchParams.name">
+            </div>
+        </div>
+        <div class="col-lg-2">
+            <div class="input-group">
+                <label for="price">Item price</label>
+                <input type="text" name="price" id="price" class="form-control" ng-model="searchParams.price">
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <div class="input-group">
+                <label for="type">Item type</label>
+                <!-- <input type="text" name="type" id="type" class="form-control" ng-model="searchParams.type"> -->
+                <select name="type" id="type" ng-model="searchParams.type" class="form-control">
+                    <option value="DISH">Dish</option>
+                    <option value="DRINK">Drink</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="col-lg-3">
+            <div class="input-group">
+                <label for="resName">Restaurant name</label>
+                <input type="text" name="resName" id="resName" class="form-control" ng-model="searchParams.restaurantName">
+            </div>
+        </div>
+
+        <div class="col-lg-1">
+            <br>
+            <button class="btn btn-default" ng-click="search()">Search</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <h4>Search results</h4>
+        <div ng-repeat="item in searchedItems">
+            <a class="list-group-item clearfix">
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">Item name:
+                        <b>{{item.name}}</b>
+                    </h4>
+                    <p class="list-group-item-text">Description:
+                        <b>{{item.description}}</b>
+                    </p>
+                    <p class="list-group-item-text">Type:
+                        <b>{{item.type}}</b>
+                    </p>
+                    <p class="list-group-item-text">Quantity:
+                        <b>{{item.quantity}}</b>
+                    </p>
+                    <p class="list-group-item-text">Price:
+                        <b>{{item.price}}</b>
+                    </p>
+                </div>
+                <div class="pull-right">
+
+                </div>
+            </a>
+
+        </div>
+    </div>
+</div>

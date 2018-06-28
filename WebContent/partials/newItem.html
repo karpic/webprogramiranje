@@ -1,0 +1,38 @@
+<div ng-controller="newItemController" class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+    <form novalidate>
+        <div class="form-group">
+            <label for="name">Item name:</label>
+            <input type="text" id="name" name="name" ng-model="item.name" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" ng-model="item.description" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="price">Price:</label>
+            <input type="number" id="price" name="price" ng-model="item.price" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="price">Type:</label>
+            <select name="type" id="type" class="form-control" ng-model="item.type">
+                <option value="DISH">Dish</option>
+                <option value="DRINK">Drink</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" ng-model="item.quantity" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label for="restaurantSelect">Restaurant:</label>
+            <select name="restaurantSelect" class="form-control" id="restaurantSelect" ng-options="restaurant.name for restaurant in restaurants track by restaurant.id" ng-model="item.restaurantId"></select>
+        </div>
+
+
+        <input type="submit" ng-click="submitNewItem(item)" value="Create item" class="form-control" />
+    </form>
+</div>

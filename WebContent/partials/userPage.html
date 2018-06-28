@@ -1,0 +1,45 @@
+<div ng-controller="userPageController">
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>My orders</h3>
+            <hr>
+            <a class="list-group-item clearfix" ng-repeat="order in myOrders">
+                <div class="pull-left">
+                  <h4 class="list-group-item-heading">Order </h4>
+                  <p class="list-group-item-text">Date ordered: <b>{{order.dateOrdered | date}}</b></p>
+                  <p class="list-group-item-text">Status: <b>{{order.status}}</b></p>
+                  <p class="list-group-item-text">Note: <b>{{order.note}}</b></p>
+              
+                  <h5>Order items</h5>
+                    <div ng-repeat="orderItem in order.orderItems">
+                        <p>[{{$index + 1}}] {{orderItem.itemName}} (x{{orderItem.quantity}})</p>
+                    </div>
+                  </div>
+               
+              </a>
+              
+        </div>
+        <div class="col-lg-6">
+            <h3>My saved restaurants</h3>
+            <hr>
+            <a class="list-group-item clearfix" ng-repeat="restaurant in savedRestaurants" ng-if="!restaurant.deleted">
+                <div class="pull-left">
+                    <h4 class="list-group-item-heading">Restaurant name:
+                        <b>{{restaurant.name}}</b>
+                    </h4>
+                    <p class="list-group-item-text">Address:
+                        <b>{{restaurant.address}}</b>
+                    </p>
+                    <p class="list-group-item-text">Category:
+                        <b>{{restaurant.category}}</b>
+                    </p>
+
+                </div>
+                <div class="pull-right">
+                    <!-- <button class="btn btn-primary">Update</button>
+                    <button class="btn btn-danger" ng-if="!restaurant.deleted">Delete</button> -->
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<div ng-controller="allVehiclesController">
+    <a class="list-group-item clearfix" ng-repeat="vehicle in vehicles">
+        <div class="pull-left">
+            <h4 class="list-group-item-heading">Brand name:
+                <b>{{vehicle.brand}}</b>
+                <span ng-if="vehicle.deleted" style="color: red">DELETED</span>
+            </h4>
+            <p class="list-group-item-text">Model:
+                <b>{{vehicle.model}}</b>
+            </p>
+            <p class="list-group-item-text">Type:
+                <b>{{vehicle.type}}</b>
+            </p>
+            <p class="list-group-item-text">Registraion number:
+                <b>{{vehicle.registrationNumber}}</b>
+            </p>
+            <p class="list-group-item-text">Production year:
+                <b>{{vehicle.productionYear}}</b>
+            </p>
+            <p class="list-group-item-text">note:
+                <b>{{vehicle.note}}</b>
+            </p>
+
+        </div>
+        <div class="pull-right">
+            <button class="btn btn-primary" ng-click="go(vehicle.id)">Update</button>
+            <button class="btn btn-danger" ng-if="!vehicle.deleted" ng-click="delete(vehicle.id)">Delete</button>
+        </div>
+    </a>
+</div>

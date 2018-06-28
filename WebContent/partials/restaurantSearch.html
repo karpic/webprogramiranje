@@ -1,0 +1,66 @@
+<div ng-controller="restaurantSearchController">
+  <div class="row">
+    <br>
+    <h3>Search restaurants</h3>
+    <hr>
+    <div class="col-lg-3">
+      <div class="input-group">
+        <label for="name">Restaurant name</label>
+        <input type="text" name="name" id="name" class="form-control" ng-model="searchParams.name">
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="input-group">
+        <label for="category">Restaurant category</label>
+        <!-- <input type="text" name="category" id="category" class="form-control" ng-model="searchParams.category"> -->
+        <select name="category" id="category" ng-model="searchParams.category" class="form-control">
+          <option value="PIZZA">Pizza restaurant</option>
+          <option value="INDIAN">Indian restaurant</option>
+          <option value="CHINEESE">Chineese restaurant</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="input-group">
+        <label for="address">Restaurant address</label>
+        <input type="text" name="address" id="address" class="form-control" ng-model="searchParams.address">
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <br>
+      <button class="btn btn-default" ng-click="search()">Search</button>
+    </div>
+  </div>
+
+  <div class="row">
+    <h4>Search results</h4>
+    <div class="col-lg-12">
+      <a class="list-group-item clearfix" ng-repeat="restaurant in searchedRestaurants">
+        <div class="pull-left">
+          <h4 class="list-group-item-heading">Restaurant name:
+            <b>{{restaurant.name}}</b>
+          </h4>
+          <p class="list-group-item-text">Address:
+            <b>{{restaurant.address}}</b>
+          </p>
+          <p class="list-group-item-text">Category:
+            <b>{{restaurant.category}}</b>
+          </p>
+        </div>
+
+        <div class="pull-right">
+          <button class="btn btn-default">View items
+            <i class="glyphicon glyphicon-chevron-down"></i>
+          </button>
+          <button class="btn btn-default" ng-click="goOrder(restaurant.id)">Order
+            <i class="glyphicon glyphicon-plus"></i>
+          </button>
+          <button class="btn btn-default" ng-click="save(restaurant.id)">Save
+            <i class="glyphicon glyphicon-heart"></i>
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
