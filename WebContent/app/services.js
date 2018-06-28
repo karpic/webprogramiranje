@@ -25,23 +25,23 @@ myApp.factory('itemsFactory', function ($http) {
     }; */
 
     factory.getOne = function(id) {
-        return $http.get('http://localhost:8080/webproject/webapi/items/id/' + id);
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/items/id/' + id);
     }
 
     factory.getTopTenItems = function () {
-        return $http.get('http://localhost:8080/webproject/webapi/items/top');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/items/top');
     };
 
     factory.getAll = function () {
-        return $http.get('http://localhost:8080/webproject/webapi/items');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/items');
     };
 
     factory.getItemsForRestaurantId = function (id) {
-        return $http.get('http://localhost:8080/webproject/webapi/items/restaurant?id=' + id);
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/items/restaurant?id=' + id);
     };
 
     factory.search = function (name, price, type, restaurantName) {
-        var url = 'http://localhost:8080/webproject/webapi/items/search?';
+        var url = 'http://localhost:8080/NonMavenWebproject/webapi/items/search?';
 
         if (name != '') {
             url = url + 'name=' + name + '&';
@@ -73,7 +73,7 @@ myApp.factory('postNewItemFactory', function ($http) {
 
     factory.createNewItem = function (item) {
         console.log(item);
-        return $http.post('http://localhost:8080/webproject/webapi/items',
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/items',
             {
                 "name": item.name,
                 "price": item.price,
@@ -89,11 +89,11 @@ myApp.factory('postNewItemFactory', function ($http) {
     };
 
     factory.updateItem = function(item) {
-        return $http.put('http://localhost:8080/webproject/webapi/items/update', item, config);
+        return $http.put('http://localhost:8080/NonMavenWebproject/webapi/items/update', item, config);
     }
 
     factory.deleteItem = function(id) {
-        return $http.delete('http://localhost:8080/webproject/webapi/items/delete/' + id, config);
+        return $http.delete('http://localhost:8080/NonMavenWebproject/webapi/items/delete/' + id, config);
     }
 
     return factory;
@@ -110,7 +110,7 @@ myApp.factory('usersFactory', function ($http) {
 
     factory.register = function (newUser) {
         console.log(newUser);
-        return $http.post('http://localhost:8080/webproject/webapi/users',
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/users',
             {
                 "username": '' + newUser.username,
                 "password": '' + newUser.password,
@@ -137,7 +137,7 @@ myApp.factory('restaurantsFactory', function ($http) {
 
     factory.createNewRestaurant = function (restaurant) {
         return $http.post(
-            'http://localhost:8080/webproject/webapi/restaurants',
+            'http://localhost:8080/NonMavenWebproject/webapi/restaurants',
             {
                 "name": restaurant.name,
                 "address": restaurant.address,
@@ -149,23 +149,23 @@ myApp.factory('restaurantsFactory', function ($http) {
     };
 
     factory.getRestaurants = function () {
-        return $http.get('http://localhost:8080/webproject/webapi/restaurants');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/restaurants');
     };
 
     factory.getRestaurantsForCategory = function (category) {
-        return $http.get('http://localhost:8080/webproject/webapi/restaurants' + '/category?category=' + category);
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/restaurants' + '/category?category=' + category);
     };
 
     factory.getRestaurantForId = function (id) {
-        return $http.get('http://localhost:8080/webproject/webapi/restaurants' + '/id/' + id);
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/restaurants' + '/id/' + id);
     };
 
     factory.getSaved = function () {
-        return $http.get('http://localhost:8080/webproject/webapi/restaurants/saved');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/restaurants/saved');
     }
 
     factory.search = function (name, address, category) {
-        var url = 'http://localhost:8080/webproject/webapi/restaurants/search?';
+        var url = 'http://localhost:8080/NonMavenWebproject/webapi/restaurants/search?';
 
         if (name != '') {
             url = url + 'name=' + name + '&';
@@ -182,15 +182,15 @@ myApp.factory('restaurantsFactory', function ($http) {
 
     factory.saveRestaurant = function(id) {
         console.log(id);
-        return $http.post('http://localhost:8080/webproject/webapi/restaurants/save?id=' + id);
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/restaurants/save?id=' + id);
     };
 
     factory.updateRestaurant = function(restaurant) {
-        return $http.put('http://localhost:8080/webproject/webapi/restaurants/update', restaurant, config);
+        return $http.put('http://localhost:8080/NonMavenWebproject/webapi/restaurants/update', restaurant, config);
     };
 
     factory.deleteRestaurant = function(id) {
-        return $http.delete('http://localhost:8080/webproject/webapi/restaurants/delete/' + id, config);
+        return $http.delete('http://localhost:8080/NonMavenWebproject/webapi/restaurants/delete/' + id, config);
     };
 
     return factory;
@@ -207,7 +207,7 @@ myApp.factory('vehiclesFactory', function ($http) {
 
     factory.createNewVehicle = function (vehicle) {
         return $http.post(
-            'http://localhost:8080/webproject/webapi/vehicles',
+            'http://localhost:8080/NonMavenWebproject/webapi/vehicles',
             {
                 "brand": vehicle.brand,
                 "model": vehicle.model,
@@ -224,19 +224,19 @@ myApp.factory('vehiclesFactory', function ($http) {
     };
 
     factory.getVehicleById = function (id){
-        return $http.get('http://localhost:8080/webproject/webapi/vehicles/id/' + id);
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/vehicles/id/' + id);
     };
 
     factory.updateVehicle = function (vehicle){
-        return $http.put('http://localhost:8080/webproject/webapi/vehicles/update', vehicle, config);
+        return $http.put('http://localhost:8080/NonMavenWebproject/webapi/vehicles/update', vehicle, config);
     };
 
     factory.getAll = function () {
-        return $http.get('http://localhost:8080/webproject/webapi/vehicles');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/vehicles');
     };
 
     factory.deleteVehicle = function (id) {
-        return $http.delete('http://localhost:8080/webproject/webapi/vehicles/delete/' + id, config);
+        return $http.delete('http://localhost:8080/NonMavenWebproject/webapi/vehicles/delete/' + id, config);
     };
 
     return factory;
@@ -252,7 +252,7 @@ myApp.factory('authFactory', function ($http, $localStorage, $location) {
     };
 
     factory.login = function (username, password) {
-        $http.post('http://localhost:8080/webproject/webapi/authentication', { username: username, password: password }).success(function (response) {
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/authentication', { username: username, password: password }).success(function (response) {
             if (response.token) {
                 $localStorage.currentUser = {
                     username: username,
@@ -285,12 +285,28 @@ myApp.factory('ordersFactory', function($http) {
         }
     };
 
+    factory.getAll = function () {
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/orders');
+    };
+
+    factory.getMyDelieveries = function () {
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/orders/mydelieveries');
+    };
+
+    factory.takeOrder = function (id) {
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/orders/take?id=' + id, config);
+    };
+
+    factory.delieverOrder = function (id) {
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/orders/delievered?id=' + id, config);
+    }
+
     factory.getMyOrders = function() {
-        return $http.get('http://localhost:8080/webproject/webapi/orders/myorders');
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/orders/myorders');
     };
 
     factory.createNewOrder = function(order){
-        return $http.post('http://localhost:8080/webproject/webapi/orders', order, config);
+        return $http.post('http://localhost:8080/NonMavenWebproject/webapi/orders', order, config);
     }
 
     return factory;

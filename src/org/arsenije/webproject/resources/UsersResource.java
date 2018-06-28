@@ -95,7 +95,7 @@ public class UsersResource {
 		Delieverer delieverer = new Delieverer();
 		try {
 			user.setRole(User.RoleEnum.DELIEVERER);
-			usersService.addUser(user);
+			usersService.addDelieverer(user);
 			delieverer.setId(user.getId());
 			delievererService.addDelieverer(delieverer);
 		}catch(IOException e) {

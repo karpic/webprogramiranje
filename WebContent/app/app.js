@@ -34,6 +34,8 @@ myApp.config(function($routeProvider, $locationProvider) {
 		templateUrl: 'partials/vehicleUpdate.html'
 	}).when('/order/:id', {
 		templateUrl: 'partials/newOrder.html',
+	}).when('/delievererpanel', {
+		templateUrl: 'partials/delievererPanel.html'
 	})
 });
 

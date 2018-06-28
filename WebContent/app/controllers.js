@@ -161,12 +161,14 @@ myApp.controller('usersController', function ($scope, usersFactory, $location) {
 myApp.controller('authController', function ($scope, $rootScope, authFactory) {
 
     $scope.login = function (username, password) {
-        authFactory.login(username, password);
-        $rootScope.$broadcast('userLoggedIn');
+        authFactory.login(username, password).success(function(data){
+            $rootScope.$broadcast('userLoggedIn');
+        });
+
     }
 });
 
-myApp.controller('headerController', function ($scope, $rootScope, $localStorage, $http) {
+myApp.controller('headerController', function ($scope, $rootScope, $localStorage, $http, $location) {
     $scope.loggedIn = false;
     $scope.loggedInUserRole = '';
     $scope.isAdmin = false;
@@ -196,6 +198,7 @@ myApp.controller('headerController', function ($scope, $rootScope, $localStorage
         $scope.loggedInUserRole = '';
         $localStorage.currentUser = {};
         $http.defaults.headers.common.Authorization = '';
+        $location.path('/login');
     }
 
     init();
@@ -343,6 +346,20 @@ myApp.controller('newOrderController', function ($scope, $routeParams, ordersFac
         $scope.newOrder.orderItems.push(newOrderItem);
     }
 
+
+    init();
+});
+
+myApp.controller('delievererPanelController', function($scope, ordersFactory){
+    function init() {
+        ordersFactory.getAll().success(function(data){
+            $scope.allOrders = data;
+        });
+
+        ordersFactory.getMyDelieveries().success(function(data) {
+            $scope.myDelieverings = data;
+        });
+    };
 
     init();
 });

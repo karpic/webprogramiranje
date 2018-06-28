@@ -51,6 +51,19 @@ public class UsersService {
 		return true;
 	}
 	
+	public boolean addDelieverer(User user) throws JsonParseException, JsonMappingException, IOException{
+		if( getUser(user.getUsername()) != null) {
+			return false;
+		}
+		
+		ArrayList<User> users = getAll();
+		user.setId((long)(users.size() + 1));
+		
+		users.add(user);
+		om.writeValue(usersFile, users);
+		return true;
+	}
+	
 	public boolean updateUser(User user) throws JsonParseException, JsonMappingException, IOException{
 		ArrayList<User> users = getAll();
 		
