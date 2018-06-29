@@ -350,7 +350,7 @@ myApp.controller('newOrderController', function ($scope, $routeParams, ordersFac
     init();
 });
 
-myApp.controller('delievererPanelController', function($scope, ordersFactory){
+myApp.controller('delievererPanelController', function($scope, ordersFactory, usersFactory){
     function init() {
         ordersFactory.getAll().success(function(data){
             $scope.allOrders = data;
@@ -360,6 +360,34 @@ myApp.controller('delievererPanelController', function($scope, ordersFactory){
             $scope.myDelieverings = data;
         });
     };
+
+    function resetData(){
+        ordersFactory.getAll().success(function(data){
+            $scope.allOrders = data;
+        });
+
+        ordersFactory.getMyDelieveries().success(function(data) {
+            $scope.myDelieverings = data;
+        });
+    };
+
+    $scope.takeOrder = function(order){
+        usersFactory.getDelInfo().success(function(data){
+            if(data.active == false){
+                ordersFactory.takeOrder(order.id).success(function(data){
+                    toast('Successfully taken the order!');
+                    resetData();
+                });
+            }
+        });
+    };
+
+    $scope.delieverOrder = function(order) {
+        ordersFactory.delieverOrder(order.id).success(function(data) {
+            toast('Successfully delievered the order!');
+            resetData();
+        });
+    }
 
     init();
 });

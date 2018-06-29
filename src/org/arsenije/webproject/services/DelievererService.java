@@ -92,6 +92,27 @@ public class DelievererService {
 		om.writeValue(delievererFile, delieverers);
 		return true;
 	}
+	
+	public boolean changeDelievererStatus(Long id, boolean status) throws JsonParseException, JsonMappingException, IOException{
+		Delieverer delieverer = null;
+		ArrayList<Delieverer> delieverers = getAll();
+		ArrayList<Long> delievererOrders = new ArrayList<Long>();
+		int delievererIndex = IntStream.range(0, delieverers.size())
+				.filter(c -> delieverers.get(c).getId().equals(id))
+				.findFirst()
+				.orElse(-1);
+		if(delievererIndex == -1) {
+			return false;
+		}
+		
+		delieverer = delieverers.get(delievererIndex);
+		
+		delieverer.setActive(status);
+		
+		delieverers.set(delievererIndex, delieverer);
+		om.writeValue(delievererFile, delieverers);
+		return true;
+	}
 
 
 }

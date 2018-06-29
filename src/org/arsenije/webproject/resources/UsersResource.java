@@ -77,7 +77,6 @@ public class UsersResource {
 	public Response getDelievererInfo() {
 		String authorizationHeader = request.getHeader(HttpHeaders.AUTHORIZATION);
 		String username = Authentication.validateToken(authorizationHeader);
-		System.out.println("Attempt to GET /delinfo");
 		User user = null;
 		Delieverer del = null;
 		try { 
@@ -89,7 +88,7 @@ public class UsersResource {
 		}
 		
 		if(del == null) {
-			return Response.serverError().build();
+			return Response.noContent().build();
 		}
 		
 		return Response.ok(del).build();

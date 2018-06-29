@@ -98,6 +98,7 @@ public class OrdersResource {
 			user = userService.getUser(username);
 			this.ordersService.changeOrderToDelievered(id);
 			this.delievererService.removeOrderFromList(user.getId(), id);
+			this.delievererService.changeDelievererStatus(user.getId(), false);
 		}catch (IOException e) {
 			e.printStackTrace();
 			return Response.serverError().build();
@@ -137,6 +138,7 @@ public class OrdersResource {
 			user = this.userService.getUser(username);
 			this.ordersService.takeOrder(id, username);
 			this.delievererService.addOrderToDeliever(user.getId(), id);
+			this.delievererService.changeDelievererStatus(user.getId(), true);
 		}catch(IOException e) {
 			e.printStackTrace();
 			return Response.serverError().build();

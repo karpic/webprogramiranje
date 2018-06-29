@@ -132,6 +132,10 @@ myApp.factory('usersFactory', function ($http) {
         return $http.get('http://localhost:8080/NonMavenWebproject/webapi/users');
     };
 
+    factory.getDelInfo = function(){
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/users/delinfo');
+    }
+
     return factory;
 });
 

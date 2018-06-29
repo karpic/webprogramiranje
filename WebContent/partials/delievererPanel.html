@@ -1,6 +1,6 @@
 <div class="container" ng-controller="delievererPanelController">
     <div class="row">
-        <col-lg-6>
+        <div class="col-lg-6">
             <h3>All orders</h3>
             <div ng-repeat="order in allOrders">
                 <div ng-if="!order.deleted">
@@ -18,20 +18,21 @@
                             </p>
 
                             <h5>Order items</h5>
-                            <div ng-repeat="let orderItem of order.orderItems">
+                            <div ng-repeat="orderItem in order.orderItems">
                                 <p>[{{$index + 1}}] {{orderItem.itemName}} (x{{orderItem.quantity}})</p>
                             </div>
                         </div>
                         <div class="pull-right">
-                            <button class="btn btn-default">Take</button>
+                            <button class="btn btn-default" ng-click="takeOrder(order)">Take</button>
                         </div>
                     </a>
                 </div>
 
             </div>
 
-        </col-lg-6>
-        <col-lg-6>
+        </div>
+        <div class="col-lg-6">
+            <h3>Orders to deliever</h3>
             <div ng-repeat="order in myDelieverings">
                 <a class="list-group-item clearfix" ng-if="order.status == 'DELIEVERING'">
                     <div class="pull-left">
@@ -48,16 +49,16 @@
                         </p>
 
                         <h5>Order items</h5>
-                        <div ng-repeat="let orderItem of order.orderItems">
+                        <div ng-repeat="orderItem in order.orderItems">
                             <p>[{{$index + 1}}] {{orderItem.itemName}} (x{{orderItem.quantity}})</p>
                         </div>
                     </div>
                     <div class="pull-right">
-                        <button class="btn btn-default">Delievered</button>
+                        <button class="btn btn-default" ng-click="delieverOrder(order)">Delievered</button>
                     </div>
                 </a>
             </div>
 
-        </col-lg-6>
+        </div>
     </div>
 </div>
