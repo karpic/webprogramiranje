@@ -36,6 +36,8 @@ myApp.config(function($routeProvider, $locationProvider) {
 		templateUrl: 'partials/newOrder.html',
 	}).when('/delievererpanel', {
 		templateUrl: 'partials/delievererPanel.html'
+	}).when('/allusers', {
+		templateUrl: 'partials/allUsers.html'
 	})
 });
 

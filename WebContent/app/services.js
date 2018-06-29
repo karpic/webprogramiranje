@@ -123,6 +123,15 @@ myApp.factory('usersFactory', function ($http) {
             config
         )
     };
+
+    factory.updateRole = function(id, role) {
+        return $http.put('http://localhost:8080/NonMavenWebproject/webapi/users/changerole?id=' + id + '&role=' + role, config);
+    };
+
+    factory.getAll = function (){
+        return $http.get('http://localhost:8080/NonMavenWebproject/webapi/users');
+    };
+
     return factory;
 });
 

@@ -1,0 +1,21 @@
+<div class="container" ng-controller="updateUserRoleController">
+    <div class="row">
+        <a class="list-group-item clearfix" ng-repeat="user in allUsers">
+            <div class="pull-left">
+              <h4 class="list-group-item-heading">First name: <b>{{user.firstName}}</b></h4>
+              <p class="list-group-item-text">Last name: <b>{{user.lastName}}</b></p>
+              <p class="list-group-item-text">Role: <b>{{user.role}}</b></p>
+              <p class="list-group-item-text">Username: <b>{{user.username}}</b></p>
+              <p class="list-group-item-text">Phone number: <b>{{user.phoneNumber}}</b></p>
+            </div>
+            <div class="pull-right">
+                <select name="role" id="role" ng-model="tempRole" class="form-control">
+                    <option value="CONSUMER">Consumer</option>
+                    <option value="DELIEVERER">Delieverer</option>
+                    <option value="ADMIN">Admin</option>
+                </select>
+              <button class="btn btn-primary" ng-click="updateUserRole(user, tempRole)">Update role</button>
+            </div>
+          </a> 
+    </div>
+</div>

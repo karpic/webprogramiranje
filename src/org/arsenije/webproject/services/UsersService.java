@@ -32,6 +32,16 @@ public class UsersService {
 				.orElse(null);
 	}
 	
+	public User getUserById(Long id) throws JsonParseException, JsonMappingException, IOException{
+		ArrayList<User> users = new ArrayList<User>();
+		users = getAll();
+		
+		return users.stream()
+				.filter((user)->user.getId()==id)
+				.findFirst()
+				.orElse(null);
+	}
+	
 	public ArrayList<User> getAll() throws JsonParseException, JsonMappingException, IOException{
 		return om.readValue(usersFile, om.getTypeFactory().constructCollectionType(ArrayList.class, User.class));
 	}

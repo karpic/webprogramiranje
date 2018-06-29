@@ -363,3 +363,25 @@ myApp.controller('delievererPanelController', function($scope, ordersFactory){
 
     init();
 });
+
+myApp.controller('updateUserRoleController', function($scope, usersFactory) {
+    function init() {
+        usersFactory.getAll().success(function(data){
+            $scope.allUsers = data;
+        });
+    };
+    function resetData() {
+        usersFactory.getAll().success(function(data){
+            $scope.allUsers = data;
+        });
+    }
+
+    $scope.updateUserRole = function(user, role){
+        usersFactory.updateRole(user.id, role).success(function(data) {
+            toast('User with username ' + data.username + ' is successfully updated!');
+            resetData();
+        });
+    }
+
+    init();
+});
