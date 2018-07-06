@@ -18,8 +18,7 @@ public class UsersService {
 	
 	public UsersService() {
 		this.om = new ObjectMapper();
-		//usersFile = new File(this.getClass().getClassLoader().getResource("../../resources/users.json").getPath());
-		this.usersFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\users.json");
+		this.usersFile = new File(this.getClass().getClassLoader().getResource("/resource/users.json").getPath());
 	}
 	
 	public User getUser(String username) throws JsonParseException, JsonMappingException, IOException{

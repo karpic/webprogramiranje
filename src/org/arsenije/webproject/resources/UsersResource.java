@@ -36,7 +36,7 @@ public class UsersResource {
 	HttpServletRequest request;
 	
 	@GET
-	//@Secured({User.RoleEnum.ADMIN, User.RoleEnum.CONSUMER})
+	//@Secured({User.RoleEnum.ADMIN})
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllUsers() {
 		

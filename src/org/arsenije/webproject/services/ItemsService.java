@@ -21,7 +21,7 @@ public class ItemsService {
 	
 	public ItemsService() {
 		this.om = new ObjectMapper();
-		this.itemsFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\items.json");
+		this.itemsFile = new File(this.getClass().getClassLoader().getResource("/resource/items.json").getPath());
 		this.restaurantService = new RestaurantsService();
 	}
 	

@@ -16,7 +16,7 @@ public class DelievererService {
 	
 	public DelievererService() {
 		this.om = new ObjectMapper();
-		this.delievererFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\delieverers.json");
+		this.delievererFile = new File(this.getClass().getClassLoader().getResource("/resource/delieverers.json").getPath());
 	}
 	
 	public ArrayList<Delieverer> getAll() throws JsonParseException, JsonMappingException, IOException{

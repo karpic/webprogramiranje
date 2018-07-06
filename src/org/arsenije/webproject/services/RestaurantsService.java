@@ -21,7 +21,7 @@ public class RestaurantsService {
 	
 	public RestaurantsService() {
 		this.om = new ObjectMapper();
-		this.restaurantFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\restaurants.json");
+		this.restaurantFile = new File(this.getClass().getClassLoader().getResource("/resource/restaurants.json").getPath());
 	}
 	
 	public ArrayList<Restaurant> getAll() throws JsonParseException, JsonMappingException, IOException{

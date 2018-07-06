@@ -18,7 +18,7 @@ public class VehiclesService {
 	
 	public VehiclesService() {
 		this.om = new ObjectMapper();
-		this.vehiclesFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\vehicles.json");
+		this.vehiclesFile = new File(this.getClass().getClassLoader().getResource("/resource/vehicles.json").getPath());
 	}
 	
 	public Vehicle getVehicleById(Long id) throws JsonParseException, JsonMappingException, IOException{

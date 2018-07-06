@@ -17,7 +17,7 @@ public class ConsumerService {
 	
 	public ConsumerService() {
 		this.om = new ObjectMapper();
-		this.consumersFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\consumers.json");
+		this.consumersFile = new File(this.getClass().getClassLoader().getResource("/resource/consumers.json").getPath());
 	}
 	
 	public ArrayList<Consumer> getAll() throws JsonParseException, JsonMappingException, IOException{

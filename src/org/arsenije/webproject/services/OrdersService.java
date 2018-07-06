@@ -26,7 +26,7 @@ public class OrdersService {
 	
 	public OrdersService() {
 		this.om = new ObjectMapper();
-		this.ordersFile = new File("C:\\Users\\Arsenije\\source\\repos\\web\\NonMavenWebproject\\resources\\orders.json");
+		this.ordersFile = new File(this.getClass().getClassLoader().getResource("/resource/orders.json").getPath());
 	}
 	
 	public ArrayList<Order> getAll() throws JsonParseException, JsonMappingException, IOException{
